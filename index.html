@@ -31,6 +31,7 @@
       max-width: 750px;
       margin: 0 auto;
       background-color: #fff;
+      padding-bottom: 80px;
     }
 
     .lp-section {
@@ -46,17 +47,18 @@
 
     .lp-section a {
       display: block;
+      cursor: pointer;
     }
 
     .lp-section a img {
-      transition: opacity 0.2s ease;
+      transition: opacity 0.15s ease;
     }
 
     .lp-section a:active img {
       opacity: 0.85;
     }
 
-    /* Sticky CTA bar at the bottom on mobile */
+    /* Sticky CTA bar */
     .sticky-cta {
       position: fixed;
       bottom: 0;
@@ -96,11 +98,6 @@
       box-shadow: 0 2px 8px rgba(92, 181, 49, 0.3);
     }
 
-    /* Bottom padding so content isn't hidden behind sticky CTA */
-    .lp-container {
-      padding-bottom: 80px;
-    }
-
     @media (min-width: 751px) {
       .sticky-cta {
         display: none;
@@ -114,62 +111,110 @@
 <body>
 
   <main class="lp-container">
-    <!-- Section 1: Hero - Expert endorsement intro -->
+
+    <!-- Hero: Women's angle - 鏡を見るたび -->
     <section class="lp-section">
-      <img src="images/section-01.jpg" alt="忙しいプロほど、選んでいる。結果を出す人の、新しい常識。体型管理のプロフェッショナルたちがメシトラを選ぶ理由。" loading="eager">
+      <img src="images/hero-women.jpg" alt="鏡を見るたびまた楽しくなる！変わってしまった体型をAIと一緒に巻き戻す。" loading="eager">
     </section>
 
-    <!-- Section 2: Pro testimonials (Akutore, Shiratori, Sakura) -->
+    <!-- CTA: プロが選ぶアプリ -->
+    <section class="lp-section">
+      <a href="https://cup-dozen.fnlfx.com/lp-1?fpid=01KH1BESVWKJYJT91QHK8SAZNX&fsid=01KMTZ4G81870F5AZ43E70X0EX&ff-locale=ja-JP">
+        <img src="images/cta-model.jpg" alt="プロが選ぶアプリをダウンロード！憧れの「モデル習慣」を試してみる" loading="eager">
+      </a>
+    </section>
+
+    <!-- Hero: 食事の管理いつまで手打ち -->
+    <section class="lp-section">
+      <img src="images/hero-easy-header.jpg" alt="面倒くさくて挫折した皆さんへ。食事の管理いつまで手打ち!? 大人のダイエットは、撮るだけでOK!" loading="eager">
+    </section>
+
+    <!-- Hero: 簡単だからゆる〜く続けられる -->
+    <section class="lp-section">
+      <img src="images/hero-easy.jpg" alt="簡単だからゆる〜く続けられる。面倒な管理はAIに丸投げして、ストレスなく理想の体型を取り戻そう！累計1.5万DL突破。" loading="eager">
+    </section>
+
+    <!-- CTA: Tiger button -->
+    <section class="lp-section">
+      <a href="https://cup-dozen.fnlfx.com/lp-1?fpid=01KH1BESVWKJYJT91QHK8SAZNX&fsid=01KMTZ4G81870F5AZ43E70X0EX&ff-locale=ja-JP">
+        <img src="images/cta-tiger.jpg" alt="30秒で登録完了！今すぐでダウンロードする" loading="lazy">
+      </a>
+    </section>
+
+    <!-- Background: Gold sparkle transition -->
+    <section class="lp-section">
+      <img src="images/bg-gold.jpg" alt="" loading="lazy" role="presentation">
+    </section>
+
+    <!-- Section: Expert endorsement intro -->
+    <section class="lp-section">
+      <img src="images/section-01.jpg" alt="忙しいプロほど、選んでいる。結果を出す人の、新しい常識。体型管理のプロフェッショナルたちがメシトラを選ぶ理由。" loading="lazy">
+    </section>
+
+    <!-- Section: Pro testimonials (Akutore, Shiratori, Sakura) -->
     <section class="lp-section">
       <img src="images/section-02.jpg" alt="元シルク・ドゥ・ソレイユ アクトレ様、プロアスリート白鳥大珠選手、薬剤師トレーニーSakura様のレビュー" loading="lazy">
     </section>
 
-    <!-- Section 3: Pro testimonials (Eito, Climb Life) -->
+    <!-- Section: Pro testimonials (Eito, Climb Life) -->
     <section class="lp-section">
       <img src="images/section-03.jpg" alt="パーソナルトレーナー エイト様、パーソナルジム クライムライフ様のレビュー" loading="lazy">
     </section>
 
-    <!-- Section 4: Problem statement -->
+    <!-- CTA: Green download button -->
+    <section class="lp-section">
+      <a href="https://cup-dozen.fnlfx.com/lp-1?fpid=01KH1BESVWKJYJT91QHK8SAZNX&fsid=01KMTZ4G81870F5AZ43E70X0EX&ff-locale=ja-JP">
+        <img src="images/section-10.jpg" alt="30秒で登録完了！今すぐでダウンロードする" loading="lazy">
+      </a>
+    </section>
+
+    <!-- Background: Gray transition -->
+    <section class="lp-section">
+      <img src="images/bg-gray.jpg" alt="" loading="lazy" role="presentation">
+    </section>
+
+    <!-- Section: Problem statement -->
     <section class="lp-section">
       <img src="images/section-04.jpg" alt="続かないのは意思が弱いからじゃない。その入力作業が時代遅れなだけ。大人のダイエットに必要なのは効率です！" loading="lazy">
     </section>
 
-    <!-- Section 5: How it works - 3 steps -->
+    <!-- Section: How it works - 3 steps -->
     <section class="lp-section">
       <img src="images/section-05.jpg" alt="シャッターを押す1秒だけ。STEP1 撮る、STEP2 解析、STEP3 完了" loading="lazy">
     </section>
 
-    <!-- Section 6: User reviews -->
+    <!-- Section: User reviews -->
     <section class="lp-section">
       <img src="images/section-06.jpg" alt="実際にアプリを使った人のご感想。シンプルで最高です！半年で14kgのダイエットに成功！" loading="lazy">
     </section>
 
-    <!-- Section 7: Graph visualization benefits -->
+    <!-- Section: Graph visualization benefits -->
     <section class="lp-section">
       <img src="images/section-07.jpg" alt="数字がグラフに変わるとダイエットはゲームのように楽しくなる" loading="lazy">
     </section>
 
-    <!-- Section 8: All-in-one AI partner -->
+    <!-- Section: All-in-one AI partner -->
     <section class="lp-section">
       <img src="images/section-08.jpg" alt="運動も食事もこれひとつ。専属のAIパートナーを持ち歩こう" loading="lazy">
     </section>
 
-    <!-- Section 9: Final CTA -->
+    <!-- Section: Final CTA -->
     <section class="lp-section">
       <img src="images/section-09.jpg" alt="3ヶ月後の自分にきっと感謝するはず。メシトラの手軽さを体感してください。" loading="lazy">
     </section>
 
-    <!-- Section 10: Download button -->
-    <section class="lp-section" id="download">
-      <a href="#" id="cta-main">
+    <!-- CTA: Final download button -->
+    <section class="lp-section">
+      <a href="https://cup-dozen.fnlfx.com/lp-1?fpid=01KH1BESVWKJYJT91QHK8SAZNX&fsid=01KMTZ4G81870F5AZ43E70X0EX&ff-locale=ja-JP">
         <img src="images/section-10.jpg" alt="30秒で登録完了！今すぐでダウンロードする" loading="lazy">
       </a>
     </section>
+
   </main>
 
   <!-- Sticky CTA on mobile -->
   <div class="sticky-cta">
-    <a href="#" id="cta-sticky">30秒で登録完了！今すぐダウンロード</a>
+    <a href="https://cup-dozen.fnlfx.com/lp-1?fpid=01KH1BESVWKJYJT91QHK8SAZNX&fsid=01KMTZ4G81870F5AZ43E70X0EX&ff-locale=ja-JP">30秒で登録完了！今すぐダウンロード</a>
   </div>
 
 </body>
