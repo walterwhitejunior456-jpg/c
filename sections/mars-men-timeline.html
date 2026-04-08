@@ -1,0 +1,233 @@
+<!--
+  3-Tab Section: What to Expect / FAQ / Reviews
+  Dark theme, orange accent. Matches Mars Men screenshot.
+  Paste into Shopify custom-liquid section.
+-->
+
+<style>
+  :root {
+    --t-bg: #1a1a1a;
+    --t-card: #2a2a2a;
+    --t-card-border: #3a3a3a;
+    --t-card-hover: #333;
+    --t-accent: #ff5722;
+    --t-text: #fff;
+    --t-muted: #b0b0b0;
+    --t-star: #f5a623;
+    --t-radius: 12px;
+  }
+
+  .t-wrap { background:var(--t-bg); padding:0 0 48px; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--t-text); -webkit-font-smoothing:antialiased; }
+  .t-wrap *,.t-wrap *::before,.t-wrap *::after { box-sizing:border-box; margin:0; padding:0; }
+  .t-inner { max-width:960px; margin:0 auto; padding:0 20px; }
+
+  /* ---- TABS ---- */
+  .t-bar { display:flex; background:#333; border-radius:6px 6px 0 0; overflow:hidden; }
+  .t-tab {
+    flex:1; padding:14px 8px; border:none; background:#444; color:var(--t-muted);
+    font-size:14px; font-weight:700; cursor:pointer; text-align:center;
+    transition:background .25s,color .25s; position:relative; letter-spacing:.02em;
+    font-family:inherit;
+  }
+  .t-tab + .t-tab { border-left:1px solid #555; }
+  .t-tab:hover { background:#555; color:var(--t-text); }
+  .t-tab.active { background:var(--t-bg); color:var(--t-text); }
+  .t-tab.active::after {
+    content:""; position:absolute; bottom:0; left:0; right:0;
+    height:3px; background:var(--t-accent);
+  }
+
+  /* ---- PANELS ---- */
+  .t-panel { display:none; padding:28px 0 0; }
+  .t-panel.active { display:block; }
+
+  .t-heading { font-size:20px; font-weight:700; margin-bottom:24px; text-align:center; line-height:1.4; max-width:520px; margin-left:auto; margin-right:auto; }
+
+  /* ---- PROGRESS BAR ---- */
+  .t-progress { position:relative; display:flex; align-items:center; justify-content:space-between; max-width:100%; margin:0 0 28px; padding:0 8px; }
+  .t-progress::before {
+    content:""; position:absolute; top:50%; left:20px; right:20px;
+    height:3px; background:var(--t-accent); transform:translateY(-50%); border-radius:2px;
+  }
+  .t-dot {
+    width:14px; height:14px; border-radius:50%; background:var(--t-accent);
+    position:relative; z-index:2; flex-shrink:0;
+  }
+
+  /* ---- CARDS ---- */
+  .t-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .t-card {
+    background:var(--t-card); border:1px solid var(--t-card-border);
+    border-radius:var(--t-radius); padding:20px;
+  }
+  .t-card-head { display:flex; align-items:center; gap:8px; margin-bottom:14px; flex-wrap:wrap; }
+  .t-card-icon { font-size:24px; line-height:1; flex-shrink:0; }
+  .t-card-day { font-weight:800; letter-spacing:.04em; color:var(--t-accent); font-size:13px; }
+  .t-card-day .n { font-size:26px; margin:0 2px; }
+  .t-card-label { font-size:16px; font-weight:700; color:var(--t-text); }
+  .t-card ul { list-style:disc; padding-left:18px; display:flex; flex-direction:column; gap:7px; }
+  .t-card li { font-size:13px; color:var(--t-muted); line-height:1.55; }
+  .t-card li::marker { color:var(--t-accent); }
+
+  /* ---- ACCORDION (FAQ + REVIEWS) ---- */
+  .t-acc { display:flex; flex-direction:column; gap:10px; }
+  .t-acc-item {
+    background:var(--t-card); border:1px solid var(--t-card-border);
+    border-radius:var(--t-radius); overflow:hidden;
+  }
+  .t-acc-btn {
+    width:100%; display:flex; align-items:center; justify-content:space-between;
+    padding:16px 20px; background:none; border:none; cursor:pointer;
+    color:var(--t-text); font-size:14px; font-weight:700; text-align:left;
+    gap:12px; text-transform:uppercase; letter-spacing:.03em;
+    transition:background .2s; font-family:inherit;
+  }
+  .t-acc-btn:hover { background:var(--t-card-hover); }
+  .t-chev {
+    width:18px; height:18px; flex-shrink:0; transition:transform .3s;
+    stroke:var(--t-muted); fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round;
+  }
+  .t-acc-item.open .t-chev { transform:rotate(180deg); }
+  .t-acc-body { max-height:0; overflow:hidden; transition:max-height .35s ease; }
+  .t-acc-item.open .t-acc-body { max-height:500px; }
+  .t-acc-body-inner { padding:0 20px 20px; font-size:13px; line-height:1.7; color:var(--t-muted); }
+
+  /* ---- STARS ---- */
+  .t-stars { display:inline-flex; gap:2px; margin-right:10px; flex-shrink:0; }
+  .t-stars svg { width:16px; height:16px; fill:var(--t-star); }
+  .t-rev-title { flex:1; }
+
+  /* ---- MOBILE ---- */
+  @media(max-width:768px){
+    .t-tab { font-size:12px; padding:12px 4px; }
+    .t-cards { grid-template-columns:1fr; }
+    .t-card { padding:20px 18px; }
+    .t-acc-btn { font-size:12px; padding:14px 16px; text-transform:none; }
+    .t-inner { padding:0 12px; }
+    .t-heading { font-size:17px; }
+    .t-card-day .n { font-size:28px; }
+    .t-card-label { font-size:17px; }
+    .t-card li { font-size:14px; }
+  }
+</style>
+
+<div class="t-wrap">
+
+  <div class="t-inner">
+    <div class="t-bar">
+      <button class="t-tab active" data-t="expect">What to Expect</button>
+      <button class="t-tab" data-t="faq">FAQs</button>
+      <button class="t-tab" data-t="reviews">Reviews</button>
+    </div>
+  </div>
+
+  <div class="t-inner">
+
+    <!-- ===== TAB 1: WHAT TO EXPECT ===== -->
+    <div class="t-panel active" id="p-expect">
+
+      <h3 class="t-heading">What Happens After You Boost Testosterone With Mars Men</h3>
+
+      <div class="t-progress">
+        <div class="t-dot"></div>
+        <div class="t-dot"></div>
+        <div class="t-dot"></div>
+      </div>
+
+      <div class="t-cards">
+
+        <!-- DAY 7 -->
+        <div class="t-card">
+          <div class="t-card-head">
+            <span class="t-card-icon">&#x1F680;</span>
+            <span class="t-card-day">DAY <span class="n">7</span></span>
+            <span class="t-card-label">Ignition</span>
+          </div>
+          <ul>
+            <li>Tongkat Ali blocks stress hormones</li>
+            <li>Shilajit feeds starving testosterone cells</li>
+            <li>Workouts feel intense again</li>
+            <li>Start to feel that all-day energy</li>
+          </ul>
+        </div>
+
+        <!-- DAY 30 -->
+        <div class="t-card">
+          <div class="t-card-head">
+            <span class="t-card-icon">&#x1F4A5;</span>
+            <span class="t-card-day">DAY <span class="n">30</span></span>
+            <span class="t-card-label">Spark</span>
+          </div>
+          <ul>
+            <li>Boron helps free stuck T</li>
+            <li>Zinc gives your balls T-making materials</li>
+            <li>Body looks leaner, stronger, more masculine</li>
+            <li>People ask what you're doing differently</li>
+          </ul>
+        </div>
+
+        <!-- DAY 90 -->
+        <div class="t-card">
+          <div class="t-card-head">
+            <span class="t-card-icon">&#x1F680;</span>
+            <span class="t-card-day">DAY <span class="n">90</span></span>
+            <span class="t-card-label">Liftoff</span>
+          </div>
+          <ul>
+            <li>All 8 ingredients working like a tuned engine</li>
+            <li>T-production optimized fully</li>
+            <li>Not temporary, this is your new normal</li>
+            <li>Welcome to the man you're supposed to be</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== TAB 2: FAQ ===== -->
+    <div class="t-panel" id="p-faq">
+      <div class="t-acc">
+        <div class="t-acc-item"><button class="t-acc-btn"><span>HOW LONG UNTIL I SEE RESULTS?</span><svg class="t-chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="t-acc-body"><div class="t-acc-body-inner">Most guys notice improved energy and mood within the first 1-2 weeks. Visible physical changes typically appear around week 4-6. For full optimization, we recommend a 90-day cycle.</div></div></div>
+        <div class="t-acc-item"><button class="t-acc-btn"><span>CAN MARS MEN HELP INCREASE MY ENERGY?</span><svg class="t-chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="t-acc-body"><div class="t-acc-body-inner">Yes. Tongkat Ali and Shilajit work synergistically to support mitochondrial energy production and reduce cortisol-driven fatigue. Many users report sustained energy throughout the day.</div></div></div>
+        <div class="t-acc-item"><button class="t-acc-btn"><span>WILL MARS MEN IMPROVE MY STRENGTH GAINS IN THE GYM?</span><svg class="t-chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="t-acc-body"><div class="t-acc-body-inner">Optimized testosterone levels are directly linked to muscle protein synthesis and recovery. Users consistently report better pumps, faster recovery, and progressive overload improvements.</div></div></div>
+        <div class="t-acc-item"><button class="t-acc-btn"><span>WHAT IS YOUR 90-DAY HIGHER-T GUARANTEE?</span><svg class="t-chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="t-acc-body"><div class="t-acc-body-inner">We offer a full 90-day money-back guarantee. If your T levels haven't improved or you're not satisfied for any reason, contact us for a full refund — no questions asked.</div></div></div>
+        <div class="t-acc-item"><button class="t-acc-btn"><span>DO I NEED TO CYCLE MARS MEN?</span><svg class="t-chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="t-acc-body"><div class="t-acc-body-inner">No cycling is required. All ingredients are natural and safe for continuous daily use. Your body does not build a tolerance to these compounds.</div></div></div>
+        <div class="t-acc-item"><button class="t-acc-btn"><span>WHO IS MARS MEN FOR?</span><svg class="t-chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="t-acc-body"><div class="t-acc-body-inner">Mars Men is designed for men 25+ who want to naturally optimize their testosterone production. Whether you're dealing with low energy, poor recovery, or declining performance, this formula is built for you.</div></div></div>
+      </div>
+    </div>
+
+    <!-- ===== TAB 3: REVIEWS ===== -->
+    <div class="t-panel" id="p-reviews">
+      <div class="t-acc">
+        <div class="t-acc-item"><button class="t-acc-btn"><span class="t-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg></span><span class="t-rev-title">"BETTER THAN TRT. LAB CONFIRMED."</span><svg class="t-chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="t-acc-body"><div class="t-acc-body-inner">I was skeptical but got bloodwork done before and after 90 days. My total T went from 340 to 680. Doctor was impressed. No side effects, no injections, just consistent daily use.</div></div></div>
+        <div class="t-acc-item"><button class="t-acc-btn"><span class="t-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg></span><span class="t-rev-title">"IMPROVEMENT IN JUST A WEEK"</span><svg class="t-chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="t-acc-body"><div class="t-acc-body-inner">Within 5 days I noticed my energy was different. Not jittery like caffeine — just steady, clean energy all day. Workouts got better fast. This is the real deal.</div></div></div>
+        <div class="t-acc-item"><button class="t-acc-btn"><span class="t-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg></span><span class="t-rev-title">"DROPPED 15LBS AND FEEL INCREDIBLE"</span><svg class="t-chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="t-acc-body"><div class="t-acc-body-inner">Combined with my training, Mars Men helped me cut 15 lbs in 3 months. I look leaner and feel stronger than I have in years. The body recomp is noticeable.</div></div></div>
+        <div class="t-acc-item"><button class="t-acc-btn"><span class="t-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg></span><span class="t-rev-title">"REAL RESULTS AND NOTICEABLE CHANGE"</span><svg class="t-chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="t-acc-body"><div class="t-acc-body-inner">My wife noticed before I did. More energy, better mood, and I'm finally making progress in the gym again after years of plateau. Worth every penny.</div></div></div>
+        <div class="t-acc-item"><button class="t-acc-btn"><span class="t-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78z"/></svg></span><span class="t-rev-title">"THIS STUFF WORKS! MY TEST RESULTS PROVE IT!"</span><svg class="t-chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="t-acc-body"><div class="t-acc-body-inner">Went from 290 ng/dL to 580 ng/dL in 12 weeks. I have the lab results to prove it. Energy is up, brain fog is gone, and I feel like myself again.</div></div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  var w=document.querySelector('.t-wrap');if(!w)return;
+  w.querySelectorAll('.t-tab').forEach(function(b){
+    b.addEventListener('click',function(){
+      w.querySelectorAll('.t-tab').forEach(function(t){t.classList.remove('active')});
+      w.querySelectorAll('.t-panel').forEach(function(p){p.classList.remove('active')});
+      b.classList.add('active');
+      var p=document.getElementById('p-'+b.getAttribute('data-t'));
+      if(p)p.classList.add('active');
+    });
+  });
+  w.querySelectorAll('.t-acc-btn').forEach(function(b){
+    b.addEventListener('click',function(){
+      var item=b.closest('.t-acc-item'),open=item.classList.contains('open');
+      item.closest('.t-acc').querySelectorAll('.t-acc-item').forEach(function(i){i.classList.remove('open')});
+      if(!open)item.classList.add('open');
+    });
+  });
+})();
+</script>
