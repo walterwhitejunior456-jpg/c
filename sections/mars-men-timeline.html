@@ -6,8 +6,8 @@
 <style>
   :root {
     --t-bg: #FDFBF7;
-    --t-card: #ffffff;
-    --t-card-border: #e0e0e0;
+    --t-card: #f0f0f0;
+    --t-card-border: #f0f0f0;
     --t-accent: #4DA6E3;
     --t-text: #1a1a1a;
     --t-muted: #555;
@@ -38,7 +38,8 @@
     border-radius:var(--t-radius); padding:20px;
   }
   .t-card-head { display:flex; align-items:center; gap:8px; margin-bottom:14px; flex-wrap:wrap; }
-  .t-card-icon { font-size:24px; line-height:1; flex-shrink:0; }
+  .t-card-icon { width:28px; height:28px; flex-shrink:0; }
+  .t-card-icon img { width:28px; height:28px; object-fit:contain; display:block; }
   .t-card-day { font-weight:800; letter-spacing:.04em; color:var(--t-accent); font-size:13px; }
   .t-card-day .n { font-size:26px; margin:0 2px; }
   .t-card-label { font-size:16px; font-weight:700; color:var(--t-text); }
@@ -74,7 +75,7 @@
       <!-- DAY 7 -->
       <div class="t-card">
         <div class="t-card-head">
-          <span class="t-card-icon">&#x1F680;</span>
+          <div class="t-card-icon"><img src="https://cdn.shopify.com/s/files/1/placeholder-rocket.png" alt="rocket"></div>
           <span class="t-card-day">DAY <span class="n">7</span></span>
           <span class="t-card-label">Ignition</span>
         </div>
@@ -89,7 +90,7 @@
       <!-- DAY 30 -->
       <div class="t-card">
         <div class="t-card-head">
-          <span class="t-card-icon">&#x1F4A5;</span>
+          <div class="t-card-icon"><img src="https://cdn.shopify.com/s/files/1/placeholder-spark.png" alt="spark"></div>
           <span class="t-card-day">DAY <span class="n">30</span></span>
           <span class="t-card-label">Spark</span>
         </div>
@@ -104,7 +105,7 @@
       <!-- DAY 90 -->
       <div class="t-card">
         <div class="t-card-head">
-          <span class="t-card-icon">&#x1F680;</span>
+          <div class="t-card-icon"><img src="https://cdn.shopify.com/s/files/1/placeholder-rocket.png" alt="rocket"></div>
           <span class="t-card-day">DAY <span class="n">90</span></span>
           <span class="t-card-label">Liftoff</span>
         </div>
