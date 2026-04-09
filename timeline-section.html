@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      background-color: #fff;
+      color: #333;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    .timeline-section {
+      max-width: 750px;
+      margin: 0 auto;
+      padding: 48px 24px 32px;
+      background-color: #fff;
+    }
+
+    .timeline-heading {
+      font-size: 24px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 32px;
+      line-height: 1.5;
+      color: #222;
+    }
+
+    .timeline-card {
+      background-color: #fafafa;
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-bottom: 20px;
+    }
+
+    .timeline-card:last-of-type {
+      margin-bottom: 24px;
+    }
+
+    .timeline-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .timeline-badge {
+      display: inline-block;
+      background-color: #4DA6E3;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+      line-height: 1.5;
+    }
+
+    .timeline-card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #222;
+      line-height: 1.4;
+    }
+
+    .timeline-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .timeline-card ul li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #444;
+      margin-bottom: 4px;
+    }
+
+    .timeline-card ul li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      background-color: #4DA6E3;
+      border-radius: 50%;
+    }
+
+    .timeline-footnote {
+      font-size: 12px;
+      color: #aaa;
+      text-align: left;
+      padding-top: 8px;
+    }
+
+    @media (max-width: 480px) {
+      .timeline-section {
+        padding: 36px 16px 24px;
+      }
+
+      .timeline-heading {
+        font-size: 20px;
+        margin-bottom: 24px;
+      }
+
+      .timeline-card {
+        padding: 22px 18px;
+      }
+
+      .timeline-card-title {
+        font-size: 16px;
+      }
+
+      .timeline-card ul li {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="timeline-section">
+    <h2 class="timeline-heading">使い始めると、こうなる。</h2>
+
+    <div class="timeline-card">
+      <div class="timeline-card-header">
+        <span class="timeline-badge">1週目</span>
+        <span class="timeline-card-title">気づく</span>
+      </div>
+      <ul>
+        <li>肩甲骨が引き寄せられる感覚がある</li>
+        <li>「こんなに前かがみだったのか」と初めて気づく</li>
+        <li>脇が痛くない ー だからつけ続けられる</li>
+      </ul>
+    </div>
+
+    <div class="timeline-card">
+      <div class="timeline-card-header">
+        <span class="timeline-badge">2週目</span>
+        <span class="timeline-card-title">体が覚え始める</span>
+      </div>
+      <ul>
+        <li>外していても「あ、ちゃんと座れてる」と気づく瞬間が出てくる</li>
+        <li>夕方の肩のだるさが変わり始める</li>
+        <li>ベルトなしでも背筋が伸びてくる</li>
+      </ul>
+    </div>
+
+    <div class="timeline-card">
+      <div class="timeline-card-header">
+        <span class="timeline-badge">60日目</span>
+        <span class="timeline-card-title">習慣になる</span>
+      </div>
+      <ul>
+        <li>猫背になると「あれ、変だな」と自分で気づける</li>
+        <li>腰痛・肩こりが軽くなっている</li>
+        <li>ベルトを忘れても姿勢を保てる</li>
+      </ul>
+    </div>
+
+    <p class="timeline-footnote">*30,000人以上のお客様の声をもとにまとめています</p>
+  </section>
+
+</body>
+</html>
